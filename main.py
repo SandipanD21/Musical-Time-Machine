@@ -7,7 +7,7 @@ from spotipy.oauth2 import SpotifyOAuth
 CLIENT_ID = "e440ef0e20c24451809a360b6c56999c"
 CLIENT_SECRET = "8bd8d834df8e49dbab2a177327ea3011"
 
-date = input("Which year do you want to travel to? Type the date in this format: YYYY-MM-DD")
+date = input("Which year do you want to travel to? Type the date in this format: YYYY-MM-DD ")
 URL = "https://www.billboard.com/charts/hot-100/" + date
 
 response = requests.get(URL)
@@ -44,6 +44,7 @@ for song in song_list:
     try:
         uri = result["tracks"]["items"][0]["uri"]
         song_uris.append(uri)
+        print(f"Added: {song}")
     except IndexError:
         print(f"{song} doesn't exist in Spotify. Skipped.")
 
